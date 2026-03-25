@@ -157,6 +157,24 @@
             font-weight: 800;
         }
 
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .stars { color: #ffcc00; margin-bottom: 10px; font-size: 1.2rem; }
+        .client-name { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 15px; display: block; }
+
         /* Project Styles */
         .container { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
         .section-header { margin-bottom: 3rem; }
@@ -269,6 +287,49 @@
             <span class="step-num">03</span>
             <h3>Deployment</h3>
             <p>Launch to your servers with full 24/7 monitoring and performance optimization.</p>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS SECTION -->
+    <div class="section-header" style="margin-top: 6rem;">
+        <h2>CLIENT FEEDBACK</h2>
+        <div></div>
+    </div>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Derrick built an incredible betting bot for us. The logic is flawless and it hasn't skipped a beat since launch."</p>
+            <span class="client-name">@Alexander_Dev</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"He is a genius when it comes to API integration. Saved us weeks of development time."</p>
+            <span class="client-name">Marcus K. (Project Lead)</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★½☆</div>
+            <p>"The software works perfectly as promised, though I wish he can adjust his way of replying. Very skilled overall."</p>
+            <span class="client-name">TechOps_Manager</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Highly professional. He transformed our messy backend into a scalable masterpiece."</p>
+            <span class="client-name">Sara Vision Ltd.</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Best automation architect I've worked with. He understands business logic better than most developers."</p>
+            <span class="client-name">@CryptoKing88</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Speed and efficiency are 10/10. He delivered the project 2 days before the deadline."</p>
+            <span class="client-name">GamerHub HQ</span>
+        </div>
+        <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"If you need high-end AI implementation, Derrick is the guy. His code is exceptionally clean."</p>
+            <span class="client-name">Julian R. (CTO)</span>
         </div>
     </div>
 
