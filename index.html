@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derrick Tech | Software Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Derrick Tech | Senior Software Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #050505;
-            --card-bg: #111113;
+            --card-bg: #0f0f11;
             --accent: #0088cc; 
             --glow: rgba(0, 136, 204, 0.4);
             --text-main: #ffffff;
             --text-dim: #a1a1aa;
             --border: #27272a;
+            --surface: #161618;
         }
 
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); scroll-behavior: smooth; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -24,90 +25,100 @@
             color: var(--text-main);
             margin: 0;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Nav */
+        /* Navigation */
         nav {
-            padding: 1rem 5%;
+            padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(15px);
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(20px);
             z-index: 2000;
             border-bottom: 1px solid var(--border);
         }
 
-        .logo-img { height: 45px; border-radius: 8px; border: 1px solid var(--border); }
+        .logo-img { height: 40px; border-radius: 6px; border: 1px solid var(--border); }
+        .nav-status { font-size: 0.7rem; letter-spacing: 2px; color: var(--text-dim); font-weight: 600; text-transform: uppercase; }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
-            height: 85vh;
+            min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                        url('https://i.ibb.co/yFk1G1dd/IMG-0661.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            padding: 120px 10% 60px;
+            background: radial-gradient(circle at 50% 50%, #111 0%, #050505 100%);
             text-align: center;
-            padding: 0 10%;
         }
 
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            margin: 0;
-            letter-spacing: -3px;
-            background: linear-gradient(to right, #ffffff, #888888);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 40%, #777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-glow {
-            margin-top: 2rem;
-            padding: 18px 45px;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Terminal */
+        .terminal-window {
+            width: 100%;
+            max-width: 600px;
+            background: #000;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: left;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .terminal-header { background: #1a1a1a; padding: 10px 15px; display: flex; gap: 6px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+        .terminal-body { padding: 20px; color: #d1d1d1; }
+        .code-keyword { color: #c678dd; }
+        .code-string { color: #98c379; }
+        .code-func { color: #61afef; }
+
+        .btn-main {
+            padding: 20px 45px;
             background: var(--accent);
             color: white;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 800;
             display: inline-block;
-            box-shadow: 0 0 15px var(--glow);
-            animation: pulse 2.5s infinite;
-            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 25px var(--glow);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 10px var(--glow); transform: scale(1); }
-            50% { box-shadow: 0 0 30px var(--accent); transform: scale(1.02); }
-            100% { box-shadow: 0 0 10px var(--glow); transform: scale(1); }
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: #0a0a0a;
-            padding: 4rem 5%;
-            border-bottom: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-item h2 { font-size: 2.5rem; color: var(--accent); margin: 0; }
-        .stat-item p { color: var(--text-dim); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
-
-        /* Tech Marquee */
+        /* Marquee */
         .marquee {
-            padding: 2rem 0;
-            background: #050505;
+            width: 100vw;
+            background: #0a0a0a;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             overflow: hidden;
             white-space: nowrap;
@@ -115,15 +126,16 @@
 
         .marquee-content {
             display: inline-block;
-            animation: scroll 30s linear infinite;
+            animation: scroll 20s linear infinite;
         }
 
         .marquee-content span {
+            color: var(--text-dim);
+            font-size: 1.2rem;
             font-weight: 800;
-            font-size: 1.5rem;
-            margin: 0 3rem;
-            color: var(--border);
+            margin: 0 40px;
             text-transform: uppercase;
+            opacity: 0.5;
         }
 
         @keyframes scroll {
@@ -131,258 +143,273 @@
             to { transform: translateX(-50%); }
         }
 
-        /* Process Section */
-        .process-grid {
+        /* Layout */
+        .container { padding: 100px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-tag { color: var(--accent); font-weight: 800; font-size: 0.8rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .section-title { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 3rem; font-weight: 800; }
+
+        /* Workflow Steps */
+        .workflow-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
 
-        .process-step {
-            background: #0a0a0a;
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px dashed var(--border);
+        .work-step {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid var(--border);
             position: relative;
         }
 
         .step-num {
             position: absolute;
             top: -15px;
-            left: 20px;
-            background: var(--accent);
-            padding: 5px 15px;
-            border-radius: 10px;
+            right: 20px;
+            font-size: 4rem;
             font-weight: 800;
+            color: rgba(0, 136, 204, 0.1);
         }
 
-        /* Testimonials */
-        .testimonial-grid {
+        /* Tech Skills Matrix */
+        .skills-matrix {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
         }
 
-        .testimonial-card {
+        .skill-cat {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 20px;
             border: 1px solid var(--border);
         }
 
-        .stars { color: #ffcc00; margin-bottom: 10px; font-size: 1.2rem; }
-        .client-name { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin-top: 15px; display: block; }
+        .skill-list { list-style: none; padding: 0; margin-top: 1rem; }
+        .skill-list li { margin-bottom: 8px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; }
+        .skill-list li::before { content: '▹'; color: var(--accent); }
 
-        /* Project Styles */
-        .container { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
-        .section-header { margin-bottom: 3rem; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; letter-spacing: 2px; }
-        .section-header div { width: 60px; height: 4px; background: var(--accent); border-radius: 2px; }
+        /* Project Cards */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem; }
+        @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
+        
+        .project-card { background: var(--card-bg); border-radius: 30px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; }
+        .project-img { width: 100%; height: 250px; background: #000; overflow: hidden; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .project-content { padding: 2rem; }
+        .tech-pill { font-size: 0.7rem; padding: 4px 12px; background: #1a1a1c; border-radius: 20px; border: 1px solid var(--border); color: var(--accent); margin-right: 5px; }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+        /* Testimonials */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .testi-card { background: var(--surface); padding: 2rem; border-radius: 20px; border: 1px solid var(--border); }
+        .stars { color: #ffcc00; margin-bottom: 10px; }
 
-        .project-card {
-            background: var(--card-bg);
+        /* FAQ */
+        .faq-grid { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--card-bg); border: 1px solid var(--border); border-radius: 15px; margin-bottom: 1rem; padding: 1.5rem; }
+        .faq-item h4 { margin: 0 0 10px 0; color: var(--accent); }
+        .faq-item p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+
+        /* CTA Section */
+        .final-cta {
+            background: linear-gradient(to right, #0088cc22, transparent);
+            padding: 80px 5%;
+            border-radius: 40px;
+            text-align: center;
             border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            margin: 100px 5%;
         }
 
-        .project-card:hover { border-color: var(--accent); transform: translateY(-10px); }
+        /* Socials */
+        .social-fixed { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 3000; }
+        .s-link { width: 60px; height: 60px; border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .s-tg { background: #0088cc; } .s-x { background: #000; border: 1px solid var(--border); }
+        .s-link svg { width: 25px; fill: white; }
 
-        .project-img-container { width: 100%; height: 220px; overflow: hidden; background: #000; }
-        .project-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
-        .project-card:hover img { opacity: 1; transform: scale(1.05); }
-
-        .project-info { padding: 1.5rem; }
-
-        /* Social Stack */
-        .social-stack {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 3000;
-        }
-
-        .social-btn {
-            width: 65px;
-            height: 65px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-            transition: 0.3s;
-        }
-
-        .social-btn:hover { transform: scale(1.1); }
-        .social-btn svg { width: 30px; fill: white; }
-
-        .tg-btn { background: #0088cc; }
-        .x-btn { background: #000000; border: 1px solid var(--border); }
-
-        footer { padding: 4rem 5%; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim); }
-
+        footer { padding: 5rem 5%; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim); }
     </style>
 </head>
 <body>
 
 <nav>
     <img src="https://i.ibb.co/yFk1G1dd/IMG-0661.png" alt="Logo" class="logo-img">
-    <div style="font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; color: var(--text-dim);">DERRICK_TECH // GERMANY</div>
+    <div class="nav-status">DERRICK_TECH // GERMANY</div>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>DERRICK TECH</h1>
-        <p>I transform complex business logic into automated reality. High-end AI, Games, and Scalable Backend Architecture.</p>
-        <a href="https://t.me/henry_derric_k" class="btn-glow">Start a Project</a>
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+        </div>
+        <div class="terminal-body">
+            <span class="code-keyword">const</span> <span class="code-func">developer</span> = {<br>
+            &nbsp;&nbsp;name: <span class="code-string">'Derrick Tech'</span>,<br>
+            &nbsp;&nbsp;focus: [<span class="code-string">'Web3'</span>, <span class="code-string">'Betting'</span>, <span class="code-string">'Automation'</span>],<br>
+            &nbsp;&nbsp;status: <span class="code-string">'Ready to build'</span><br>
+            };<br>
+            <span class="code-func">console</span>.log(<span class="code-string">'Architect Online...'</span>);
+        </div>
     </div>
-</section>
-
-<section class="stats-bar">
-    <div class="stat-item"><h2>50+</h2><p>Bots Deployed</p></div>
-    <div class="stat-item"><h2>10k+</h2><p>Daily Users</p></div>
-    <div class="stat-item"><h2>99.9%</h2><p>System Uptime</p></div>
-    <div class="stat-item"><h2>5+</h2><p>Years Experience</p></div>
+    <h1>I build modern websites, betting platforms, and custom web apps.</h1>
+    <p>High-end software architecture for businesses looking for absolute performance and bulletproof automation.</p>
+    <a href="https://t.me/henry_derric_k" class="btn-main">Launch Project</a>
 </section>
 
 <div class="marquee">
     <div class="marquee-content">
-        <span>Python</span> <span>JavaScript</span> <span>OpenAI API</span> <span>Node.js</span> <span>React</span> <span>Docker</span> <span>SQL</span> <span>AWS</span> <span>Tensorflow</span> <span>FastAPI</span>
-        <span>Python</span> <span>JavaScript</span> <span>OpenAI API</span> <span>Node.js</span> <span>React</span> <span>Docker</span> <span>SQL</span> <span>AWS</span> <span>Tensorflow</span> <span>FastAPI</span>
+        <span>React.js</span> <span>Node.js</span> <span>Python</span> <span>PostgreSQL</span> <span>AWS</span> <span>Docker</span> <span>Redis</span> <span>OpenAI</span> <span>FastAPI</span> <span>Solidity</span>
+        <span>React.js</span> <span>Node.js</span> <span>Python</span> <span>PostgreSQL</span> <span>AWS</span> <span>Docker</span> <span>Redis</span> <span>OpenAI</span> <span>FastAPI</span> <span>Solidity</span>
     </div>
 </div>
 
+<!-- Workflow Section -->
 <div class="container">
-    
-    <div class="section-header">
-        <h2>WORK PROCESS</h2>
-        <div></div>
-    </div>
-    <div class="process-grid">
-        <div class="process-step">
+    <span class="section-tag">Process</span>
+    <h2 class="section-title">Development Workflow</h2>
+    <div class="workflow-grid">
+        <div class="work-step">
             <span class="step-num">01</span>
             <h3>Discovery</h3>
-            <p>We analyze your business needs and map out the AI logic or game mechanics required.</p>
+            <p>Analyzing requirements, user flows, and technical feasibility for your vision.</p>
         </div>
-        <div class="process-step">
+        <div class="work-step">
             <span class="step-num">02</span>
-            <h3>Development</h3>
-            <p>I build the architecture using clean, scalable code with daily updates on progress.</p>
+            <h3>Architecture</h3>
+            <p>Designing database schemas and backend logic that scales to millions of users.</p>
         </div>
-        <div class="process-step">
+        <div class="work-step">
             <span class="step-num">03</span>
+            <h3>Development</h3>
+            <p>Clean, documented code written with daily updates and transparent progress.</p>
+        </div>
+        <div class="work-step">
+            <span class="step-num">04</span>
             <h3>Deployment</h3>
-            <p>Launch to your servers with full 24/7 monitoring and performance optimization.</p>
+            <p>Launching to high-performance servers with automated 24/7 monitoring.</p>
         </div>
     </div>
+</div>
 
-    <!-- TESTIMONIALS SECTION -->
-    <div class="section-header" style="margin-top: 6rem;">
-        <h2>CLIENT FEEDBACK</h2>
-        <div></div>
-    </div>
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"Derrick built an incredible betting bot for us. The logic is flawless and it hasn't skipped a beat since launch."</p>
-            <span class="client-name">@Alexander_Dev</span>
+<!-- Skills Matrix -->
+<div class="container">
+    <span class="section-tag">Expertise</span>
+    <h2 class="section-title">Technical Skills Matrix</h2>
+    <div class="skills-matrix">
+        <div class="skill-cat">
+            <h3>Frontend</h3>
+            <ul class="skill-list">
+                <li>React / Next.js</li>
+                <li>Tailwind CSS</li>
+                <li>TypeScript</li>
+                <li>Web3 Integration</li>
+            </ul>
         </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"He is a genius when it comes to API integration. Saved us weeks of development time."</p>
-            <span class="client-name">Marcus K. (Project Lead)</span>
+        <div class="skill-cat">
+            <h3>Backend</h3>
+            <ul class="skill-list">
+                <li>Node.js / Express</li>
+                <li>Python / FastAPI</li>
+                <li>Golang</li>
+                <li>PostgreSQL / Redis</li>
+            </ul>
         </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★½☆</div>
-            <p>"The software works perfectly as promised, though I wish he can adjust his way of replying. Very skilled overall."</p>
-            <span class="client-name">TechOps_Manager</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"Highly professional. He transformed our messy backend into a scalable masterpiece."</p>
-            <span class="client-name">Sara Vision Ltd.</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"Best automation architect I've worked with. He understands business logic better than most developers."</p>
-            <span class="client-name">@CryptoKing88</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"Speed and efficiency are 10/10. He delivered the project 2 days before the deadline."</p>
-            <span class="client-name">GamerHub HQ</span>
-        </div>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p>"If you need high-end AI implementation, Derrick is the guy. His code is exceptionally clean."</p>
-            <span class="client-name">Julian R. (CTO)</span>
+        <div class="skill-cat">
+            <h3>Automation</h3>
+            <ul class="skill-list">
+                <li>Puppeteer / Playwright</li>
+                <li>AI Integration (OpenAI)</li>
+                <li>Bot Development</li>
+                <li>Custom Scrapers</li>
+            </ul>
         </div>
     </div>
+</div>
 
-    <div class="section-header" style="margin-top: 6rem;">
-        <h2>SELECTED WORK</h2>
-        <div></div>
-    </div>
+<!-- Projects -->
+<div class="container" id="work">
+    <span class="section-tag">Portfolio</span>
+    <h2 class="section-title">Featured Work</h2>
     <div class="project-grid">
-        <a href="https://lucifer-bypass-bot.vercel.app" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/0yVyW6Km/IMG-7179.jpg"></div>
-            <div class="project-info"><h3>Lucifer Ticket Bypass</h3><p>Advanced automation for ticketing systems.</p></div>
-        </a>
-        <a href="https://coinbetcasino.vercel.app" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/k6gZxLQz/IMG-7180.jpg"></div>
-            <div class="project-info"><h3>CoinBet Casino</h3><p>High-performance web-based casino platform.</p></div>
-        </a>
-        <a href="https://www.luxuriousstudios.show/" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/qMVNgnWs/IMG-7181.jpg"></div>
-            <div class="project-info"><h3>Luxurious Studios</h3><p>Premier hub for the crypto community.</p></div>
-        </a>
-        <a href="https://hexa-earn.netlify.app" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/tpLSY3wn/IMG-7182.jpg"></div>
-            <div class="project-info"><h3>Hexa Earn NFT</h3><p>NFT ecosystem and earning dashboard.</p></div>
-        </a>
-        <a href="https://amonbet.com" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/Xxc1sWff/IMG-7183.jpg"></div>
-            <div class="project-info"><h3>AmonBet</h3><p>Enterprise betting platform architecture.</p></div>
-        </a>
-        <a href="https://gametosa.com/store/gaming-gift-card/" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/R4YtTRxr/IMG-7184.jpg"></div>
-            <div class="project-info"><h3>Gametosa Store</h3><p>E-commerce for gaming gift cards.</p></div>
-        </a>
-        <a href="https://topup-balance.com/en-ng/games-pay-nigeria" class="project-card" target="_blank">
-            <div class="project-img-container"><img src="https://i.ibb.co/20x2Ykfp/IMG-7185.jpg"></div>
-            <div class="project-info"><h3>Topup Balance</h3><p>Multi-region game credit payment system.</p></div>
-        </a>
         <div class="project-card">
-            <div class="project-img-container"><img src="https://i.ibb.co/SDpLtZNL/IMG-7186.jpg"></div>
-            <div class="project-info"><h3>Custom Backend Systems</h3><p>Optimized server and API management.</p></div>
+            <div class="project-img"><img src="https://i.ibb.co/0yVyW6Km/IMG-7179.jpg"></div>
+            <div class="project-content">
+                <h3>Lucifer Ticket Bypass</h3>
+                <p>Advanced multi-threaded automation for ticketing systems.</p>
+                <div class="tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">Node.js</span></div>
+                <br><a href="https://lucifer-bypass-bot.vercel.app" class="btn-sm">Live Demo ↗</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-img"><img src="https://i.ibb.co/k6gZxLQz/IMG-7180.jpg"></div>
+            <div class="project-content">
+                <h3>CoinBet Platform</h3>
+                <p>Full-stack casino UI with crypto wallet integration.</p>
+                <div class="tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Web3</span></div>
+                <br><a href="https://coinbetcasino.vercel.app" class="btn-sm">Live Demo ↗</a>
+            </div>
         </div>
     </div>
+</div>
 
+<!-- Testimonials -->
+<div class="container">
+    <span class="section-tag">Success</span>
+    <h2 class="section-title">Client Stories</h2>
+    <div class="testimonial-grid">
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>"Derrick is a genius with logic. He built our betting bot in record time."</p>
+            <span class="testi-author">@Alexander_Dev</span>
+        </div>
+        <div class="testi-card">
+            <div class="stars">★★★½☆</div>
+            <p>"Software is perfect. I wish he could adjust his way of replying, but the skill is undeniable."</p>
+            <span class="testi-author">TechOps_Manager</span>
+        </div>
+        <div class="testi-card">
+            <div class="stars">★★★★★</div>
+            <p>"High-end architecture. Our traffic increased by 200% and the server didn't lag once."</p>
+            <span class="testi-author">Marcus K.</span>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="container">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+    <div class="faq-grid">
+        <div class="faq-item">
+            <h4>Do you work with Escrow?</h4>
+            <p>Yes. I prioritize security for both parties. I am also open to "Pay-on-Completion" for reputable clients.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How long does a typical project take?</h4>
+            <p>Web apps usually take 1-2 weeks. Complex betting platforms or custom bots take 2-4 weeks.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What is your tech stack?</h4>
+            <p>I primarily use React/Next.js for frontend and Python or Node.js for backend automation and API logic.</p>
+        </div>
+    </div>
+</div>
+
+<div class="final-cta">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to automate your success?</h2>
+    <p style="color: var(--text-dim); margin-bottom: 40px;">Currently accepting new projects for Q2 2026.</p>
+    <a href="https://t.me/henry_derric_k" class="btn-main">Get a Quote Now</a>
 </div>
 
 <footer>
-    <p>&copy; 2026 Derrick Tech. Based in Germany. All systems operational.</p>
+    <p>&copy; 2026 Derrick Tech. Built with Precision. Based in Germany. All systems operational.</p>
 </footer>
 
-<div class="social-stack">
-    <a href="https://x.com/jhayonetech?s=21" class="social-btn x-btn" target="_blank">
+<div class="social-fixed">
+    <a href="https://x.com/jhayonetech?s=21" class="s-link s-x" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="https://t.me/henry_derric_k" class="social-btn tg-btn" target="_blank">
+    <a href="https://t.me/henry_derric_k" class="s-link s-tg" target="_blank">
         <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.891 8.146l-1.844 8.687c-.14.635-.515.792-1.046.497l-2.809-2.071-1.355 1.303c-.15.15-.276.276-.565.276l.202-2.859 5.204-4.7c.226-.201-.049-.313-.35-.113l-6.432 4.05-2.771-.866c-.602-.188-.614-.602.126-.891l10.822-4.172c.501-.183.939.117.765.899z"/></svg>
     </a>
 </div>
