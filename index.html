@@ -198,7 +198,8 @@
         .project-img { width: 100%; height: 250px; background: #000; overflow: hidden; }
         .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
         .project-content { padding: 2rem; }
-        .tech-pill { font-size: 0.7rem; padding: 4px 12px; background: #1a1a1c; border-radius: 20px; border: 1px solid var(--border); color: var(--accent); margin-right: 5px; margin-bottom: 5px; display: inline-block; }
+        .tech-pill { font-size: 0.7rem; padding: 4px 12px; background: #1a1a1c; border-radius: 20px; border: 1px solid var(--border); color: var(--accent); margin-right: 5px; margin-bottom: 5px; display: inline-block; text-decoration: none; }
+        .tech-pill:hover { background: var(--accent); color: white; }
 
         /* Testimonials */
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -228,12 +229,13 @@
         .s-link svg { width: 25px; fill: white; }
 
         footer { padding: 5rem 5%; border-top: 1px solid var(--border); text-align: center; color: var(--text-dim); }
+        .btn-sm { font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: 800; }
     </style>
 </head>
 <body>
 
 <nav>
-    <img src="https://i.ibb.co/yFk1G1dd/IMG-0661.png" alt="Logo" class="logo-img">
+    <a href="https://ibb.co/356G4pfc"><img src="https://i.ibb.co/kVbk543X/IMG-0661.png" alt="IMG-0661" class="logo-img" border="0"></a>
     <div class="nav-status">DERRICK_TECH // GERMANY</div>
 </nav>
 
@@ -347,7 +349,7 @@
                 <h3>Lucifer Ticket Bypass</h3>
                 <p>Advanced multi-threaded automation for ticketing systems.</p>
                 <div class="tech-stack"><span class="tech-pill">Python</span><span class="tech-pill">Node.js</span></div>
-                <br><a href="https://lucifer-bypass-bot.vercel.app" class="btn-sm">Live Demo ↗</a>
+                <br><a href="https://lucifer-bypass-bot.vercel.app" class="btn-sm" target="_blank">Live Demo ↗</a>
             </div>
         </div>
         <div class="project-card">
@@ -356,48 +358,48 @@
                 <h3>CoinBet Platform</h3>
                 <p>Full-stack casino UI with crypto wallet integration.</p>
                 <div class="tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Web3</span></div>
-                <br><a href="https://coinbetcasino.vercel.app" class="btn-sm">Live Demo ↗</a>
+                <br><a href="https://coinbetcasino.vercel.app" class="btn-sm" target="_blank">Live Demo ↗</a>
             </div>
         </div>
 
-        <!-- NEW: Offshore Betting Sites -->
+        <!-- UPDATED: Offshore Betting Sites -->
         <div class="project-card">
             <div class="project-content">
                 <span class="section-tag">Offshore Betting</span>
                 <h3>Non-UK Betting Architect</h3>
                 <p>Architecture and integration for offshore casino, sports, and crash games.</p>
                 <div class="tech-stack">
-                    <span class="tech-pill">Freshbet.com</span>
-                    <span class="tech-pill">Goldenbet.com</span>
-                    <span class="tech-pill">Mystake.bet</span>
+                    <a href="https://paripesa.ng" class="tech-pill" target="_blank">Paripesa.ng ↗</a>
+                    <a href="https://1win.ng" class="tech-pill" target="_blank">1win.ng ↗</a>
+                    <a href="https://goldenbet.com" class="tech-pill" target="_blank">Goldenbet.com ↗</a>
                 </div>
             </div>
         </div>
 
-        <!-- NEW: Game Scripts -->
+        <!-- UPDATED: Game Scripts -->
         <div class="project-card">
             <div class="project-content">
                 <span class="section-tag">Game Scripts</span>
                 <h3>Game Build & Source Integration</h3>
                 <p>Specializing in ready-made betting games, Aviator clones, and slot scripts.</p>
                 <div class="tech-stack">
-                    <span class="tech-pill">Codecanyon</span>
-                    <span class="tech-pill">Sellanycode</span>
-                    <span class="tech-pill">Codester</span>
+                    <a href="https://codecanyon.net/category/php-scripts/games" class="tech-pill" target="_blank">Codecanyon ↗</a>
+                    <a href="https://sellanycode.com/product-category/game-source-code/" class="tech-pill" target="_blank">Sellanycode ↗</a>
+                    <a href="https://codester.com/category/9/game-apps" class="tech-pill" target="_blank">Codester ↗</a>
                 </div>
             </div>
         </div>
 
-        <!-- NEW: Telegram Bots -->
+        <!-- UPDATED: Telegram Bots -->
         <div class="project-card">
             <div class="project-content">
                 <span class="section-tag">Automation</span>
                 <h3>Telegram Bot Market Mastery</h3>
                 <p>Deployment of betting bots, prediction bots, and crypto automation.</p>
                 <div class="tech-stack">
-                    <span class="tech-pill">Botmarket.org</span>
-                    <span class="tech-pill">Telegram-Bot-Store</span>
-                    <span class="tech-pill">Github Scripts</span>
+                    <a href="https://botmarket.org" class="tech-pill" target="_blank">Botmarket.org ↗</a>
+                    <a href="https://telegram-bot-store.com" class="tech-pill" target="_blank">Bot-Store ↗</a>
+                    <a href="https://github.com/topics/telegram-bot" class="tech-pill" target="_blank">Github Scripts ↗</a>
                 </div>
             </div>
         </div>
