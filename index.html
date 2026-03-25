@@ -191,14 +191,14 @@
         .skill-list li::before { content: '▹'; color: var(--accent); }
 
         /* Project Cards */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; }
         @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
         
         .project-card { background: var(--card-bg); border-radius: 30px; border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; }
         .project-img { width: 100%; height: 250px; background: #000; overflow: hidden; }
         .project-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
         .project-content { padding: 2rem; }
-        .tech-pill { font-size: 0.7rem; padding: 4px 12px; background: #1a1a1c; border-radius: 20px; border: 1px solid var(--border); color: var(--accent); margin-right: 5px; }
+        .tech-pill { font-size: 0.7rem; padding: 4px 12px; background: #1a1a1c; border-radius: 20px; border: 1px solid var(--border); color: var(--accent); margin-right: 5px; margin-bottom: 5px; display: inline-block; }
 
         /* Testimonials */
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -323,6 +323,15 @@
                 <li>Custom Scrapers</li>
             </ul>
         </div>
+        <div class="skill-cat">
+            <h3>Marketplaces & CMS</h3>
+            <ul class="skill-list">
+                <li><a href="https://yclas.com" style="color: inherit; text-decoration: none;">Yclas</a></li>
+                <li><a href="https://boxbilling.com" style="color: inherit; text-decoration: none;">BoxBilling</a></li>
+                <li><a href="https://osclass.org" style="color: inherit; text-decoration: none;">Osclass</a></li>
+                <li>Script Integration</li>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -331,6 +340,7 @@
     <span class="section-tag">Portfolio</span>
     <h2 class="section-title">Featured Work</h2>
     <div class="project-grid">
+        <!-- Original Projects -->
         <div class="project-card">
             <div class="project-img"><img src="https://i.ibb.co/0yVyW6Km/IMG-7179.jpg"></div>
             <div class="project-content">
@@ -347,6 +357,48 @@
                 <p>Full-stack casino UI with crypto wallet integration.</p>
                 <div class="tech-stack"><span class="tech-pill">React</span><span class="tech-pill">Web3</span></div>
                 <br><a href="https://coinbetcasino.vercel.app" class="btn-sm">Live Demo ↗</a>
+            </div>
+        </div>
+
+        <!-- NEW: Offshore Betting Sites -->
+        <div class="project-card">
+            <div class="project-content">
+                <span class="section-tag">Offshore Betting</span>
+                <h3>Non-UK Betting Architect</h3>
+                <p>Architecture and integration for offshore casino, sports, and crash games.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill">Freshbet.com</span>
+                    <span class="tech-pill">Goldenbet.com</span>
+                    <span class="tech-pill">Mystake.bet</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Game Scripts -->
+        <div class="project-card">
+            <div class="project-content">
+                <span class="section-tag">Game Scripts</span>
+                <h3>Game Build & Source Integration</h3>
+                <p>Specializing in ready-made betting games, Aviator clones, and slot scripts.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill">Codecanyon</span>
+                    <span class="tech-pill">Sellanycode</span>
+                    <span class="tech-pill">Codester</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW: Telegram Bots -->
+        <div class="project-card">
+            <div class="project-content">
+                <span class="section-tag">Automation</span>
+                <h3>Telegram Bot Market Mastery</h3>
+                <p>Deployment of betting bots, prediction bots, and crypto automation.</p>
+                <div class="tech-stack">
+                    <span class="tech-pill">Botmarket.org</span>
+                    <span class="tech-pill">Telegram-Bot-Store</span>
+                    <span class="tech-pill">Github Scripts</span>
+                </div>
             </div>
         </div>
     </div>
